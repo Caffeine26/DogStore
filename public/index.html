@@ -1,343 +1,314 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="language" content="Spanish">
-    <meta name="author" content="Isaí Ramírez">
-    <meta name="SoterRamírez" content="soterramirez.dev" />
-    <meta name="description" content="Proyecto para portafolio, consumo de API de perritos." />
+    <meta name="description" content="Portfolio project, dog API consumption." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/tailwind.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <title>Dog Store</title>
+    <style>
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            height: 130px;
+           
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .card-title {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <!--Creación de Navegación-->
-    <nav class="flex items-center justify-between max-w-3xl p-4 mx-auto">
-        <a class="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-lg" href="/">
-            🐕
-        </a>
-        <ul class="flex items-center space-x-2 text-sm font-medium text-gray-500">
-            <li class="hidden lg:block">
-                <a class="px-3 py-2 rounded-lg" href="/"> Inicio </a>
-            </li>
-            <li class="hidden lg:block">
-                <a class="px-3 py-2 rounded-lg" href="#AdoptaDogos"> Adopta </a>
-            </li>
-            <li class="hidden lg:block">
-                <a class="px-3 py-2 rounded-lg" href="#DogosAdoptados"> Adoptados </a>
-            </li>
-            <li class="hidden lg:block">
-                <a class="px-3 py-2 rounded-lg" href="#Subir"> Subir </a>
-            </li>
-            <li>
-                <a class="inline-flex items-center px-3 py-2 rounded-lg" href="https://SoterRamirez.dev" target="_blank">
-                    + Proyectos
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        class="ml-1.5 w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">🐕</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#AdoptaDogs">Adoption</a></li>
+                <li class="nav-item"><a class="nav-link" href="#DogsAdopted">Adopted</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Sumit">Upload</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <!--Creación de un banner-->
-    <section id="Banner" class="relative bg-white">
-        <img class="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
-            src="https://images.unsplash.com/photo-1601758003122-53c40e686a19" alt="Couple on a bed with a dog" />
-        <div class="hidden sm:block sm:inset-0 sm:absolute sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
-        <div class="relative max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
-            <div class="max-w-xl text-center sm:text-left">
-                <h1 class="text-3xl font-extrabold sm:text-5xl">
-                    Adopta un 🐩
-                    <strong class="font-extrabold text-rose-700 sm:block">
-                        es gratis.
-                    </strong>
-                </h1>
-                <p class="max-w-lg mt-4 sm:leading-relaxed sm:text-xl">
-                    Al adoptar ayudar a muchos perritos a ser más felices
-                </p>
-                <div class="flex flex-wrap gap-4 mt-8 text-center">
-                    <a class="block w-full px-12 py-3 text-sm font-medium text-blackrounded shadow bg-rose-600 sm:w-auto active:bg-rose-500 hover:bg-rose-700 focus:outline-none focus:ring"
-                        href="#Adopta">
-                        Visit
-                    </a>
-                    <a class="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 sm:w-auto hover:text-rose-700 active:text-rose-500 focus:outline-none focus:ring"
-                        href="#Adopta">
-                        Adopta
-                    </a>
+    <!-- Banner -->
+    <section id="Banner" class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19" alt="Couple on a bed with a dog" class="img-fluid">
+            <h1 class="display-4">Adopting Dogs 🐩</h1>
+            <p class="lead">This website is created for adopting dogs and visiting our fun and lovely dogs.</p>
+            <a class="btn btn-primary btn-lg" style="width:200px" href="#AdoptaDogs" role="button">Visit</a>
+            <a class="btn btn-secondary btn-lg" style="width:200px" href="#DogsAdopted" role="button">Adopt</a>
+        </div>
+    </section>
+    <!-- Dog Cards -->
+    <section id="AdoptaDogs" class="container">
+        <div class="alert alert-danger d-none" role="alert" id="Error"></div>
+        <h2 class="text-center my-4">Dogs for Adoption</h2>
+        <div class="text-center mb-4">
+            <button class="btn btn-outline-primary" onclick="loadRandomDog()">🐕 See more dogs 🐩</button>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-4" id="btn1">
+                <div class="card">
+                    <img id="img1" class="card-img-top" alt="Dog for Adoption">
+                    <div class="card-body text-center">
+                        <h7 class="card-title">Click below for adopting</h7>
+                        <a href="#" class="btn btn-primary">Adopt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" id="btn2">
+                <div class="card">
+                    <img id="img2" class="card-img-top" alt="Dog for Adoption">
+                    <div class="card-body text-center">
+                        <h7 class="card-title">Click below for adopting</h7>
+                        <a href="#" class="btn btn-primary">Adopt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" id="btn3">
+                <div class="card">
+                    <img id="img3" class="card-img-top" alt="Dog for Adoption">
+                    <div class="card-body text-center">
+                        <h7 class="card-title">Click below for adopting</h7>
+                        <a href="#" class="btn btn-primary">Adopt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4" id="btn4">
+                <div class="card">
+                    <img id="img4" class="card-img-top" alt="Dog for Adoption">
+                    <div class="card-body text-center">
+                        <h7 class="card-title">Click below for adopting</h7>
+                        <a href="#" class="btn btn-primary">Adopt</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--Creación de Tarjetas DOGOS-->
-    <section id="AdoptaDogos">
-        <div class="max-w-screen-xl px-4 py-8 mx-auto">
-            <div>
-                <div class="flex items-center justify-between p-4 text-red-700 border rounded border-red-900/10 bg-red-50" role="alert">
-                    <strong id="Error" class="text-sm font-medium">  </strong>
-                    <button class="opacity-90" type="button">
-                        <span class="sr-only"> Cerrar </span>
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
+    <!-- Upload Dog Section -->
+    <section id="Subir" class="jumbotron jumbotron">
+        <h2 class="text-center">Upload Your Dog</h2>
+        <form id="uploadingForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
                 </div>
-                <span class="inline-block w-12 h-1 bg-red-700"></span>
-                <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
-                    Perritos en Adopción
-                </h2>
-                <div class="flex flex-wrap gap-4 mt-8 text-center">
-                    <button
-                        class="text-center w-full px-6 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 sm:w-auto hover:text-rose-700 active:text-rose-500 focus:outline-none focus:ring"
-                        onclick="loadRandomDog()">
-                        🐕 Más Perritos en adopción 🐩
-                    </button>
+                <div class="form-group col-md-6">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" id="age" name="age">
                 </div>
             </div>
-            <div class="grid grid-cols-2 mt-8 lg:grid-cols-4 gap-x-4 gap-y-8">
-                <a id="btn1" class="block">
-                    <div class="flex justify-center">
-                        <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> Adóptame </strong>
-                    </div>
-                    <img id="img1" alt="Perrito en Adopción" class="object-cover w-full -mt-3 h-96" />
-                    <h5 class="mt-4 text-sm text-black/90 text-center">
-                        Perrito en adopción
-                    </h5>
-                </a>
-                <a id="btn2" class="block">
-                    <div class="flex justify-center">
-                        <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> Adóptame </strong>
-                    </div>
-                    <img id="img2" alt="Perrito en Adopción" class="object-cover w-full -mt-3 h-96" />
-                    <h5 class="mt-4 text-sm text-black/90 text-center">
-                        Perrito en adopción
-                    </h5>
-                </a>
-                <a id="btn3" class="block">
-                    <div class="flex justify-center">
-                        <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> Adóptame </strong>
-                    </div>
-                    <img id="img3" alt="Perrito en Adopción" class="object-cover w-full -mt-3 h-96" />
-                    <h5 class="mt-4 text-sm text-black/90 text-center">
-                        Perrito en adopción
-                    </h5>
-                </a>
-                <a id="btn4" class="block">
-                    <div class="flex justify-center">
-                        <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> Adóptame </strong>
-                    </div>
-                    <img id="img4" alt="Perrito en Adopción" class="object-cover w-full -mt-3 h-96" />
-                    <h5 class="mt-4 text-sm text-black/90 text-center">
-                        Perrito en adopción
-                    </h5>
-                </a>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="breed">Breed</label>
+                    <input type="text" class="form-control" id="breed" name="breed">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="file">Photo</label>
+                    <input type="file" class="form-control-file" id="file" name="file">
+                    <div id="preview" class="mt-3"></div>
+                </div>
             </div>
-        </div>
+            <button type="button" class="btn btn-primary" onclick="uploadDogPhoto()">Upload Dog</button>
+        </form>
     </section>
-    <!--Creación de Historia-->
-    <section id="Historia">
-        <div class="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 lg:h-screen">
-                <div class="relative z-10 lg:py-16">
-                    <div class="relative h-64 sm:h-80 lg:h-full">
-                        <img class="absolute inset-0 object-cover w-full h-full"
-                            src="https://images.unsplash.com/photo-1652342516868-50eac8c9af0d" alt="Indoors house" />
-                    </div>
-                </div>
-                <div class="relative flex items-center bg-gray-100">
-                    <span class="hidden lg:inset-y-0 lg:absolute lg:w-16 lg:bg-gray-100 lg:block lg:-left-16"></span>
-                    <div class="p-8 sm:p-16 lg:p-24">
-                        <h2 class="text-2xl font-bold sm:text-3xl">
-                            ¿Adoptar es ayudarme a mi mismo a crecer?
-                        </h2>
     
-                        <p class="mt-4 text-gray-600">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
-                            molestiae! Quidem est esse numquam odio deleniti, beatae, magni
-                            dolores provident quaerat totam eos, aperiam architecto eius quis
-                            quibusdam fugiat dicta.
-                        </p>
-    
-                        <a class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white bg-indigo-600 border border-indigo-600 rounded active:text-indigo-500 hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring"
-                            href="#">
-                            Aprende como
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Adopted Dogs Section -->
+    <section id="DogsAdopted" class="container my-4">
+        <h2 class="text-center">Adopted Dogs</h2>
+        <div class="row" id="favoritesDogs"></div>
     </section>
-    <!--Creación de Dogos Adoptados-->
-    <section id="DogosAdoptados">
-        <div class="max-w-screen-xl px-4 py-8 mx-auto">
-            <div>
-                <span class="inline-block w-12 h-1 bg-red-700"></span>
-                <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
-                    Perritos Adoptados
-                </h2>
-            </div>
-            <article id="favoritesDogos" class="grid grid-cols-2 mt-8 lg:grid-cols-4 gap-x-4 gap-y-8">
-                <!--TEMPLATE IMAGE DOGS FAVORITES
-                    <a href="" class="block">
-                    <div class="flex justify-center">
-                        <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> Eliminar
-                        </strong>
-                    </div>
-                    <img id="img1" alt="Eliminar" class="object-cover w-full -mt-3 h-96" />
-                    <h5 class="mt-4 text-sm text-black/90 text-center">
-                        Adoptado
-                    </h5>
-                </a> -->
-            </article>
-        </div>
-    </section>
-    <!--Creación de Formulario para subir perritos en adopción-->
-    <section id="Subir" class="relative grid grid-cols-1 lg:grid-cols-2 lg:h-screen bg-white">
-        <img class="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
-            src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e" alt="Couple on a bed with a dog" />
-        <div class="hidden sm:block sm:inset-0 sm:absolute sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
-        <div class="relative flex items-center max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
-            <span class="hidden lg:inset-y-0 lg:absolute lg:w-16 lg:bg-gray-100 lg:block lg:-left-16"></span>
-            <div class="p-8 sm:p-16 lg:p-24">
-                <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
-                    <div class="max-w-lg mx-auto">
-                        <h1 class="text-2xl font-bold text-center text-indigo-600 sm:text-3xl">¿Perritos en la calle?</h1>
-                        <p class="max-w-md mx-auto mt-4 text-center text-gray-500">
-                            Sube la foto de tu perrito de la calle para que alguien más pueda adoptar a este perrito.
-                        </p>
-                        <form id="uploadingForm" class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
-                            <p class="text-lg font-medium">Sube la foto del perrito</p>
-                            <label class="block">
-                            <span class="sr-only">Selecciona archivo</span>
-                            <input id="file" type="file"
-                            class="block w-full text-sm text-slate-500
-                            file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
-                            file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700
-                            hover:file:bg-violet-100"
-                            name="file" />
-                            </label>
-                            <button type="button" onclick="uploadDogPhoto()"
-                            class="cursor-pointer block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg">
-                                Subir
-                            </button>
-                            <div class="flex items-center ml-3 sm:block">
-                                <div id="preview"></div>
+    <!-- Contact us Section -->
+    <section id="contact" class="jumbotron jumbotron ">
+       
+        <div class="jumbotron jumbotron-fluid  ">
+          <h1  style="padding-left: 10px;">Contact us</h1>
+                    <div class="jumbotron jumbotron-fluid" style="margin:10px">
+                        <form>
+                            <div class="form-group">
+                                <label for="contactEmail">Email address</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email">
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your message"></textarea>
+                            </div>
+                            <button  style=" margin-bottom: 15px;"type="submit" class="btn btn-primary" >Send Message</button>
+                         </form>
+
+                        <div class="card-footer text-muted text-center">
+                            <p>Email: <a href="mailto:sorsonit06@gmail.com">sorsonit06@gmail.com</a></p>
+                            <p>Facebook: <a href="https://web.facebook.com/profile.php?id=100091639720902" target="_blank">sonit sor</a></p>
+                            <p>Phone: +855 977429389</p>
+                        </div>
+                    
+                   
+            
+            
+     
     </section>
-    <!--Creación de Footer-->
-    <footer class="text-white bg-gray-900 lg:grid lg:grid-cols-5">
-        <aside class="hidden lg:relative lg:col-span-2 lg:block">
-            <img class="absolute inset-0 object-cover w-full h-full"
-                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b" alt="Dog" />
-        </aside>
-        <div class="px-4 py-16 sm:px-6 lg:px-8 lg:col-span-3">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div>
-                    <p class="font-medium">
-                        <span class="text-xs tracking-widest uppercase">
-                            Llama
-                        </span>
-                        <a class="block text-2xl sm:text-3xl hover:opacity-75" href="">
-                            0123456789
-                        </a>
-                    </p>
-                    <ul class="mt-8 space-y-2 text-sm">
-                        <li>Lunes a Viernes: 10am - 5pm</li>
-                        <li>Fines de semana: 10am - 3pm</li>
-                    </ul>
-                    <div class="flex mt-16 space-x-3">
-                        <a class="p-2 border rounded-full border-white/25 hover:opacity-75" href="" target="_blank"
-                            rel="noreferrer">
-                            <span class="sr-only"> Facebook </span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a class="p-2 border rounded-full border-white/25 hover:opacity-75" href="" target="_blank"
-                            rel="noreferrer">
-                            <span class="sr-only"> Instagram </span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a class="p-2 border rounded-full border-white/25 hover:opacity-75" href="" target="_blank"
-                            rel="noreferrer">
-                            <span class="sr-only"> Twitter </span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                            </svg>
-                        </a>
-                        <a class="p-2 border rounded-full border-white/25 hover:opacity-75" href="" target="_blank"
-                            rel="noreferrer">
-                            <span class="sr-only"> GitHub </span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a class="p-2 border rounded-full border-white/25 hover:opacity-75" href="" target="_blank"
-                            rel="noreferrer">
-                            <span class="sr-only"> Dribbble </span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <p class="font-medium">
-                            Suporte
-                        </p>
-                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-300">
-                            <a class="hover:opacity-75" href=""> Contacto </a>
-                            <a class="hover:opacity-75" href=""> FAQs </a>
-                            <a class="hover:opacity-75" href=""> Chat </a>
-                            <a class="hover:opacity-75" href=""> Correo </a>
-                        </nav>
-                    </div>
-                    <div>
-                        <p class="font-medium">Adopta</p>
-                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-300">
-                            <a class="hover:opacity-75" href=""> Como adoptar </a>
-                            <a class="hover:opacity-75" href=""> Alimentos </a>
-                            <a class="hover:opacity-75" href=""> Salud </a>
-                            <a class="hover:opacity-75" href=""> Veterinario </a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="pt-12 mt-12 border-t border-gray-800">
-                <div class="text-sm text-gray-300 sm:items-center sm:justify-between sm:flex">
-                    <div class="flex space-x-3">
-                        <a class="hover:opacity-75" href=""> Políticas y Privacidad </a>
-                        <a class="hover:opacity-75" href=""> Terminos & Condiciones </a>
-                    </div>
-                    <p class="mt-4 sm:mt-0">
-                        &copy; 2022 SoterRamirez.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="./js/dog.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const API_URL_RANDOM = "https://api.thedogapi.com/v1/images/search?limit=4";
+        const API_URL_FAVORITE = "https://api.thedogapi.com/v1/favourites";
+        const API_URL_FAVORITE_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=`;
+        const API_URL_UPLOAD = "https://api.thedogapi.com/v1/images/upload";
+        const spanError = document.getElementById("Error");
+
+        async function loadRandomDog() {
+            const response = await fetch(API_URL_RANDOM);
+            const data = await response.json();
+            console.log("Load Random Dog");
+            console.log(data);
+            if (response.status !== 200) {
+                spanError.innerHTML = "Error: " + response.status + " " + data.message;
+            } else {
+                document.getElementById("img1").src = data[0].url;
+                document.getElementById("img2").src = data[1].url;
+                document.getElementById("img3").src = data[2].url;
+                document.getElementById("img4").src = data[3].url;
+                document.getElementById("btn1").onclick = () => saveFavoriteDog(data[0].id);
+                document.getElementById("btn2").onclick = () => saveFavoriteDog(data[1].id);
+                document.getElementById("btn3").onclick = () => saveFavoriteDog(data[2].id);
+                document.getElementById("btn4").onclick = () => saveFavoriteDog(data[3].id);
+            }
+        }
+
+        async function loadFavoriteDog() {
+            const response = await fetch(API_URL_FAVORITE, {
+                method: "GET",
+                headers: {
+                    'X-API-KEY': 'ae4e08e8-4f4c-4f0b-8159-98b33b9d46f2',
+                },
+            });
+            const data = await response.json();
+            console.log("Load Favorite Dog");
+            console.log(data);
+            if (response.status !== 200) {
+                spanError.innerHTML = "Error: " + response.status + " " + data.message;
+            } else {
+                const article = document.getElementById("favoritesDogs");
+                article.innerHTML = "";
+                data.forEach(dog => {
+                    const div = document.createElement("div");
+                    div.classList.add("col-md-3", "mb-4");
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+                    const img = document.createElement("img");
+                    img.classList.add("card-img-top");
+                    img.src = dog.image.url;
+                    const cardBody = document.createElement("div");
+                    cardBody.classList.add("card-body", "text-center");
+                    const h5 = document.createElement("h5");
+                    h5.classList.add("card-title");
+                    h5.innerText = "Adopted";
+                    const a = document.createElement("a");
+                    a.classList.add("btn", "btn-success");
+                    a.href = "#";
+                    a.innerText = "Remove";
+                    a.onclick = () => deleteFavoriteDog(dog.id);
+                    cardBody.appendChild(h5);
+                    cardBody.appendChild(a);
+                    card.appendChild(img);
+                    card.appendChild(cardBody);
+                    div.appendChild(card);
+                    article.appendChild(div);
+                });
+            }
+        }
+
+        async function saveFavoriteDog(id) {
+            const response = await fetch(API_URL_FAVORITE, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'X-API-KEY': 'ae4e08e8-4f4c-4f0b-8159-98b33b9d46f2',
+                },
+                body: JSON.stringify({
+                    image_id: id,
+                }),
+            });
+            const data = await response.json();
+            console.log("Save Favorite Dog");
+            console.log(data);
+            if (response.status !== 200) {
+                spanError.innerHTML = "Error: " + response.status + " " + data.message;
+            } else {
+                console.log("Saved");
+                loadFavoriteDog();
+            }
+        }
+
+        async function deleteFavoriteDog(id) {
+            const response = await fetch(API_URL_FAVORITE_DELETE(id), {
+                method: "DELETE",
+                headers: {
+                    'X-API-KEY': 'ae4e08e8-4f4c-4f0b-8159-98b33b9d46f2',
+                },
+            });
+            const data = await response.json();
+            if (response.status !== 200) {
+                spanError.innerHTML = "Error: " + response.status + " " + data.message;
+            } else {
+                console.log("Deleted");
+                loadFavoriteDog();
+            }
+        }
+
+        async function uploadDogPhoto() {
+            const form = document.getElementById("uploadingForm");
+            const formData = new FormData(form);
+            console.log(formData.get("file"));
+            const response = await fetch(API_URL_UPLOAD, {
+                method: "POST",
+                headers: {
+                    'X-API-KEY': 'ae4e08e8-4f4c-4f0b-8159-98b33b9d46f2',
+                },
+                body: formData,
+            });
+            const data = await response.json();
+            if (response.status !== 201) {
+                spanError.innerHTML = "Error: " + response.status + " " + data.message;
+                console.log('Error');
+                console.log({ data });
+            } else {
+                console.log('Dog photo uploaded');
+                console.log({ data });
+                console.log(data.url);
+                saveFavoriteDog(data.id);
+                console.log('End of function');
+            }
+        }
+
+        document.getElementById("file").onchange = function (e) {
+            let reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = function () {
+                let preview = document.getElementById("preview"),
+                    image = document.createElement("img");
+                image.classList.add("w-20", "h-20", "rounded-full", "shadow-sm");
+                image.src = reader.result;
+                preview.innerHTML = "";
+                preview.append(image);
+            };
+        };
+
+        loadRandomDog();
+        loadFavoriteDog();
+    </script>
 </body>
 </html>
